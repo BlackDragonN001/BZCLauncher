@@ -1,0 +1,7 @@
+*.exe
+*.dll
+*.obj
+*.suo
+*.sdf
+BZCLauncher/bin
+BZCLauncher/obj
