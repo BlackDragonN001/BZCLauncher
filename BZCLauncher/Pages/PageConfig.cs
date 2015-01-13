@@ -53,5 +53,11 @@ namespace BZCLauncher.Pages
                 ConfigParameter.Text = ConfigParameter.Text.ToLower().Replace("/win", "").TrimEnd();
             }
         }
+
+        private void LaunchButton_Click(object sender, EventArgs e)
+        {
+            MainWindow activeForm = (MainWindow)Form.ActiveForm;
+            activeForm.LaunchGame();
+        }
     }
 }

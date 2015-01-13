@@ -17,6 +17,33 @@ namespace BZCLauncher
             InitializeComponent();
         }
 
+        public void LaunchGame()
+        {
+            MainWindow activeForm = (MainWindow)Form.ActiveForm;
+            string commandArguments = activeForm.PageConfig.ConfigParameter.Text;
+
+            try
+            {
+                //Form.ActiveForm.Hide();
+                //Form.ActiveForm.Show();
+
+                //MainWindow newWindow = new MainWindow();
+                //newWindow.Show();
+
+                System.Diagnostics.Process resultProcess = System.Diagnostics.Process.Start("bzone.exe", "/config BZC_bzone.cfg " + commandArguments);
+
+                // resultProcess.WaitForExit();
+
+                //Form.ActiveForm.Visible = true;
+            }
+            catch (System.ComponentModel.Win32Exception exception)
+            {
+                MessageBox.Show("An internal exception occurred trying to run BattleZone: " + exception.Message, "Error");
+            }
+
+            activeForm.Close();
+        }
+
         private void MainWindow_Load(object sender, EventArgs e)
         {
             PageMain.Visible = true;

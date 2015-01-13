@@ -73,6 +73,16 @@ namespace BZCLauncher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bigwindow1 {
+            get {
+                object obj = ResourceManager.GetObject("bigwindow1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BLbtnclk {
             get {
                 object obj = ResourceManager.GetObject("BLbtnclk", resourceCulture);
@@ -196,6 +206,26 @@ namespace BZCLauncher.Properties {
         internal static System.Drawing.Bitmap loadbg {
             get {
                 object obj = ResourceManager.GetObject("loadbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap scrollbarbg {
+            get {
+                object obj = ResourceManager.GetObject("scrollbarbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap smallwindow1 {
+            get {
+                object obj = ResourceManager.GetObject("smallwindow1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -24,5 +24,21 @@ namespace BZCLauncher
             activeForm.PageAddons.Visible = false;
             activeForm.PageConfig.Visible = false;
         }
+
+        private void LaunchButton_Click(object sender, EventArgs e)
+        {
+            MainWindow activeForm = (MainWindow)Form.ActiveForm;
+            activeForm.LaunchGame();
+        }
+
+        private void Enable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Install_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

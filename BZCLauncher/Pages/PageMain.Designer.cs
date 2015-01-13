@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ConfigButton = new BZCLauncher.Controls.PictureButton();
             this.LaunchButton = new BZCLauncher.Controls.PictureButton();
             this.ButtonAddons = new BZCLauncher.Controls.PictureButton();
             this.ButtonExit = new BZCLauncher.Controls.PictureButton();
-            this.ConfigButton = new BZCLauncher.Controls.PictureButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +47,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // ConfigButton
+            // 
+            this.ConfigButton.DownImage = global::BZCLauncher.Properties.Resources.BLbtnclk;
+            this.ConfigButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfigButton.ForeColor = System.Drawing.Color.Lime;
+            this.ConfigButton.IdleImage = global::BZCLauncher.Properties.Resources.BLbtnoff;
+            this.ConfigButton.Location = new System.Drawing.Point(0, 445);
+            this.ConfigButton.MousedOverImage = global::BZCLauncher.Properties.Resources.BLbtnon;
+            this.ConfigButton.Name = "ConfigButton";
+            this.ConfigButton.Size = new System.Drawing.Size(200, 35);
+            this.ConfigButton.TabIndex = 4;
+            this.ConfigButton.Text = "CONFIG";
+            this.ConfigButton.TextOffset = new System.Drawing.Point(-6, 1);
+            this.ConfigButton.Click += new System.EventHandler(this.ConfigButton_Click);
+            // 
             // LaunchButton
             // 
             this.LaunchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -60,7 +75,7 @@
             this.LaunchButton.Size = new System.Drawing.Size(152, 34);
             this.LaunchButton.TabIndex = 3;
             this.LaunchButton.Text = "LAUNCH";
-            this.LaunchButton.TextOffset = new System.Drawing.Point(-15, -3);
+            this.LaunchButton.TextOffset = new System.Drawing.Point(-12, -3);
             this.LaunchButton.Click += new System.EventHandler(this.LaunchButton_Click);
             // 
             // ButtonAddons
@@ -76,7 +91,7 @@
             this.ButtonAddons.Name = "ButtonAddons";
             this.ButtonAddons.Size = new System.Drawing.Size(200, 35);
             this.ButtonAddons.TabIndex = 2;
-            this.ButtonAddons.Text = "INSTALL";
+            this.ButtonAddons.Text = "EXPANSIONS";
             this.ButtonAddons.TextOffset = new System.Drawing.Point(12, 1);
             this.ButtonAddons.Click += new System.EventHandler(this.ButtonAddons_Click);
             // 
@@ -92,23 +107,8 @@
             this.ButtonExit.Size = new System.Drawing.Size(152, 34);
             this.ButtonExit.TabIndex = 1;
             this.ButtonExit.Text = "EXIT";
-            this.ButtonExit.TextOffset = new System.Drawing.Point(15, -3);
+            this.ButtonExit.TextOffset = new System.Drawing.Point(16, -3);
             this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
-            // 
-            // ConfigButton
-            // 
-            this.ConfigButton.DownImage = global::BZCLauncher.Properties.Resources.BLbtnclk;
-            this.ConfigButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfigButton.ForeColor = System.Drawing.Color.Lime;
-            this.ConfigButton.IdleImage = global::BZCLauncher.Properties.Resources.BLbtnoff;
-            this.ConfigButton.Location = new System.Drawing.Point(0, 445);
-            this.ConfigButton.MousedOverImage = global::BZCLauncher.Properties.Resources.BLbtnon;
-            this.ConfigButton.Name = "ConfigButton";
-            this.ConfigButton.Size = new System.Drawing.Size(200, 35);
-            this.ConfigButton.TabIndex = 4;
-            this.ConfigButton.Text = "CONFIG";
-            this.ConfigButton.TextOffset = new System.Drawing.Point(-8, 1);
-            this.ConfigButton.Click += new System.EventHandler(this.ConfigButton_Click);
             // 
             // PageMain
             // 
