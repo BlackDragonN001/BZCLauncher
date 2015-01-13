@@ -21,6 +21,7 @@ namespace BZCLauncher
         {
             PageMain.Visible = true;
             PageAddons.Visible = false;
+            PageConfig.Visible = false;
         }
 
         private void PageMain_Load(object sender, EventArgs e)

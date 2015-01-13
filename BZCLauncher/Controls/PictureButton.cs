@@ -13,23 +13,28 @@ namespace BZCLauncher.Controls
 
     class PictureButton : Control
     {
-        private Image mUpImage = null;
+        private Image mIdleImage = null;
+        private Image mMousedOverImage = null;
         private Image mDownImage = null;
 
         private bool mIsPressed = false;
+        private bool mIsHovered = false;
+
+        private Point mTextOffset;
 
         // Set and get the up image
-        public Image UpImage
+        public Image IdleImage
         {
             get
             {
-                return mUpImage;
+                return mIdleImage;
             }
             set
             {
-                mUpImage = value;
+                mIdleImage = value;
 
-                this.Size = new System.Drawing.Size(mUpImage.Width, mUpImage.Height);
+                if (mIdleImage != null)
+                    this.Size = new System.Drawing.Size(mIdleImage.Size.Width, mIdleImage.Size.Height);
             }
         }
 
@@ -42,6 +47,36 @@ namespace BZCLauncher.Controls
             set
             {
                 mDownImage = value;
+
+                if (mDownImage != null)
+                    this.Size = new System.Drawing.Size(mDownImage.Size.Width, mDownImage.Size.Height);
+            }
+        }
+
+        public Image MousedOverImage
+        {
+            get
+            {
+                return mMousedOverImage;
+            }
+            set
+            {
+                mMousedOverImage = value;
+
+                if (mMousedOverImage != null)
+                    this.Size = new System.Drawing.Size(mMousedOverImage.Size.Width, mMousedOverImage.Size.Height);
+            }
+        }
+
+        public Point TextOffset
+        {
+            get
+            {
+                return mTextOffset;
+            }
+            set
+            {
+                mTextOffset = value;
             }
         }
 
@@ -59,12 +94,36 @@ namespace BZCLauncher.Controls
             base.OnMouseUp(e);
         }
 
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            mIsHovered = true;
+            if (mMousedOverImage != null)
+                this.Invalidate();
+            base.OnMouseHover(e);
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            mIsHovered = false;
+            if (mMousedOverImage != null)
+                this.Invalidate();
+            base.OnMouseLeave(e);
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
+            // Draw the down image if we're clicked
             if (mIsPressed && mDownImage != null)
-                e.Graphics.DrawImage(mDownImage, 0, 0);
-            else if (mUpImage != null)
-                e.Graphics.DrawImage(mUpImage, 0, 0);
+                e.Graphics.DrawImage(mDownImage, 0, 0, mDownImage.Size.Width, mDownImage.Size.Height);
+            // Draw the idle image if we're not hovered or clicked
+            else if (mIdleImage != null && !mIsPressed && !mIsHovered)
+                e.Graphics.DrawImage(mIdleImage, 0, 0, mIdleImage.Size.Width, mIdleImage.Size.Height);
+            // Draw the hovered image otherwise
+            else if (mMousedOverImage != null)
+                 e.Graphics.DrawImage(mMousedOverImage, 0, 0, mMousedOverImage.Size.Width, mMousedOverImage.Size.Height);
+            // If all else fails, draw the idle image
+            else if (mIdleImage != null)
+                e.Graphics.DrawImage(mIdleImage, 0, 0, mIdleImage.Size.Width, mIdleImage.Size.Height);
 
             if (this.Text.Length > 0)
             {
@@ -73,8 +132,8 @@ namespace BZCLauncher.Controls
                 e.Graphics.DrawString(this.Text,
                     this.Font,
                     new SolidBrush(this.ForeColor),
-                    (this.ClientSize.Width - size.Width) / 2,
-                    (this.ClientSize.Height - size.Height) / 2);
+                    ((this.ClientSize.Width - size.Width) / 2) + mTextOffset.X,
+                    ((this.ClientSize.Height - size.Height) / 2) + mTextOffset.Y);
             }
 
             base.OnPaint(e);

@@ -22,6 +22,7 @@ namespace BZCLauncher
             MainWindow activeForm = (MainWindow)Form.ActiveForm;
             activeForm.PageMain.Visible = true;
             activeForm.PageAddons.Visible = false;
+            activeForm.PageConfig.Visible = false;
         }
     }
 }

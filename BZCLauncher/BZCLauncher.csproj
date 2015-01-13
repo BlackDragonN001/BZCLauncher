@@ -65,6 +65,12 @@
     <Compile Include="Pages\PageMain.Designer.cs">
       <DependentUpon>PageMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\PageConfig.Designer.cs">
+      <DependentUpon>PageConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\PictureButton.resx">
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\PageAddons.resx">
       <DependentUpon>PageAddons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PageConfig.resx">
+      <DependentUpon>PageConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\PageMain.resx">
       <DependentUpon>PageMain.cs</DependentUpon>
@@ -112,13 +121,61 @@
     <None Include="Resources\bzonead2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bztemp.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ESCCLK.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ESCON.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bzclbackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRbtnoff.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BLbtnclk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BLbtnoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BLbtnon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRbtnclk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRbtnoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRbtnon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bzctag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TLbtnclk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TLbtnoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TLbtnon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRbtnclk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRbtnoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TRbtnon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loadbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bztemp.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
