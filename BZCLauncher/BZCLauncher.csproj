@@ -53,9 +53,10 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageAddons.cs">
+    <Compile Include="Pages\Page.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Pages\PageAddons.cs" />
     <Compile Include="Pages\PageAddons.Designer.cs">
       <DependentUpon>PageAddons.cs</DependentUpon>
     </Compile>
