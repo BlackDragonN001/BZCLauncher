@@ -80,6 +80,26 @@ namespace BZCLauncher.Controls
             }
         }
 
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				const int WS_EX_TRANSPARENT = 0x20;
+				CreateParams cp = base.CreateParams;
+				cp.ExStyle |= WS_EX_TRANSPARENT;
+				return cp;
+			}
+		}
+
+
+	    public PictureButton()
+	    {
+			this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+			this.SetStyle(ControlStyles.Opaque, true);
+			this.SetStyle(ControlStyles.ResizeRedraw, true);
+			this.BackColor = Color.Transparent;
+	    }
+
         protected override void OnMouseDown(MouseEventArgs e)
         {
             mIsPressed = true;
