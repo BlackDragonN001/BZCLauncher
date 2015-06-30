@@ -1,4 +1,4 @@
-﻿namespace BZCLauncher
+﻿namespace BZCLauncher.Forms
 {
     partial class PageMain
     {

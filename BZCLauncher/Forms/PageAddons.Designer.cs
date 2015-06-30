@@ -1,5 +1,4 @@
-﻿namespace BZCLauncher
-{
+﻿namespace BZCLauncher.Forms {
     partial class PageAddons
     {
         /// <summary> 

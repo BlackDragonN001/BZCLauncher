@@ -44,32 +44,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigManager.cs" />
     <Compile Include="Controls\PictureButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="IConfig.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Page.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\PageAddons.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\PageAddons.cs" />
-    <Compile Include="Pages\PageAddons.Designer.cs">
+    <Compile Include="Forms\PageAddons.Designer.cs">
       <DependentUpon>PageAddons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageMain.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\PageMain.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\PageMain.Designer.cs">
+    <Compile Include="Forms\PageMain.Designer.cs">
       <DependentUpon>PageMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageConfig.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\PageConfig.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\PageConfig.Designer.cs">
+    <Compile Include="Forms\PageConfig.Designer.cs">
       <DependentUpon>PageConfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -80,13 +81,13 @@
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PageAddons.resx">
+    <EmbeddedResource Include="Forms\PageAddons.resx">
       <DependentUpon>PageAddons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PageConfig.resx">
+    <EmbeddedResource Include="Forms\PageConfig.resx">
       <DependentUpon>PageConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\PageMain.resx">
+    <EmbeddedResource Include="Forms\PageMain.resx">
       <DependentUpon>PageMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
