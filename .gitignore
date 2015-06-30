@@ -5,3 +5,6 @@
 *.sdf
 BZCLauncher/bin
 BZCLauncher/obj
+packages
+!packages/repositories.config
+.vs/

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace BZCLauncher.Forms {
 	public partial class PageConfig : Form {
+		IList<IDisposable> Disposables = new List<IDisposable>();
 		IConfig config { get; }
 
 		public PageMain @MainWindow { get; set; }
@@ -18,6 +19,9 @@ namespace BZCLauncher.Forms {
 			this.MainWindow = mainWindow;
 			this.config = config;
 			this.InitializeComponent();
+			this.Disposables.Add(config.UponChanged.Subscribe(_ => {
+				CommandPreview.Text = config.BuildCommandArguments();
+			}));
 		}
 
 		private void BackButton_Click(object sender, EventArgs e) {

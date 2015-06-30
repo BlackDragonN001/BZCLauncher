@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel;
+using System.Reactive;
 using System.Text;
 
 namespace BZCLauncher {
@@ -9,13 +11,14 @@ namespace BZCLauncher {
 				args.Append(" /win");
 			}
 			if (!String.IsNullOrWhiteSpace(config.AdditionalArgs)) {
-				args.Append(config.AdditionalArgs);
+				args.AppendFormat(" {0}", config.AdditionalArgs);
 			}
-			return args.ToString();
+			return args.ToString().Trim();
 		}
 	}
-	public interface IConfig {
+	public interface IConfig : INotifyPropertyChanged {
 		bool Windowed { get; set; }
 		string AdditionalArgs { get; set; }
+		IObservable<Unit> UponChanged { get; }
 	}
 }

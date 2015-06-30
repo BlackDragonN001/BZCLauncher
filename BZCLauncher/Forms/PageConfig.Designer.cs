@@ -1,37 +1,36 @@
-namespace BZCLauncher.Forms
-{
-    partial class PageConfig
-    {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+namespace BZCLauncher.Forms {
+	partial class PageConfig {
+		/// <summary> 
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary> 
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing) {
+			if (disposing && (components != null)) {
+				components.Dispose();
+				foreach (var disposable in Disposables) {
+					if (disposable != null) {
+						disposable.Dispose();
+					}
+				}
+				this.Disposables.Clear();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Component Designer generated code
+		#region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-			this.BackButton = new BZCLauncher.Controls.PictureButton();
+		/// <summary> 
+		/// Required method for Designer support - do not modify 
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent() {
 			this.ConfigParameter = new System.Windows.Forms.TextBox();
 			this.CheckWindow = new System.Windows.Forms.CheckBox();
-			this.LaunchButton = new BZCLauncher.Controls.PictureButton();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.CheckNoIntro = new System.Windows.Forms.CheckBox();
@@ -50,24 +49,11 @@ namespace BZCLauncher.Forms
 			this.CheckSnapScrap = new System.Windows.Forms.CheckBox();
 			this.CheckAdjustHeightOnLoad = new System.Windows.Forms.CheckBox();
 			this.AdjustHeightOnLoadVal = new System.Windows.Forms.TextBox();
+			this.CommandPreview = new System.Windows.Forms.TextBox();
+			this.LaunchButton = new BZCLauncher.Controls.PictureButton();
+			this.BackButton = new BZCLauncher.Controls.PictureButton();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// BackButton
-			// 
-			this.BackButton.BackColor = System.Drawing.Color.Transparent;
-			this.BackButton.DownImage = global::BZCLauncher.Properties.Resources.TLbtnclk;
-			this.BackButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.BackButton.ForeColor = System.Drawing.Color.Lime;
-			this.BackButton.IdleImage = global::BZCLauncher.Properties.Resources.TLbtnoff;
-			this.BackButton.Location = new System.Drawing.Point(0, 0);
-			this.BackButton.MousedOverImage = global::BZCLauncher.Properties.Resources.TLbtnon;
-			this.BackButton.Name = "BackButton";
-			this.BackButton.Size = new System.Drawing.Size(152, 34);
-			this.BackButton.TabIndex = 0;
-			this.BackButton.Text = "BACK";
-			this.BackButton.TextOffset = new System.Drawing.Point(16, -3);
-			this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
 			// 
 			// ConfigParameter
 			// 
@@ -90,23 +76,6 @@ namespace BZCLauncher.Forms
 			this.CheckWindow.Text = "Windowed Mode";
 			this.CheckWindow.UseVisualStyleBackColor = false;
 			this.CheckWindow.CheckedChanged += new System.EventHandler(this.CheckWindow_CheckedChanged);
-			// 
-			// LaunchButton
-			// 
-			this.LaunchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.LaunchButton.BackColor = System.Drawing.Color.Transparent;
-			this.LaunchButton.DownImage = global::BZCLauncher.Properties.Resources.TRbtnclk;
-			this.LaunchButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LaunchButton.ForeColor = System.Drawing.Color.Lime;
-			this.LaunchButton.IdleImage = global::BZCLauncher.Properties.Resources.TRbtnoff;
-			this.LaunchButton.Location = new System.Drawing.Point(488, 0);
-			this.LaunchButton.MousedOverImage = global::BZCLauncher.Properties.Resources.TRbtnon;
-			this.LaunchButton.Name = "LaunchButton";
-			this.LaunchButton.Size = new System.Drawing.Size(152, 34);
-			this.LaunchButton.TabIndex = 4;
-			this.LaunchButton.Text = "LAUNCH";
-			this.LaunchButton.TextOffset = new System.Drawing.Point(-12, -3);
-			this.LaunchButton.Click += new System.EventHandler(this.LaunchButton_Click);
 			// 
 			// pictureBox1
 			// 
@@ -310,12 +279,55 @@ namespace BZCLauncher.Forms
 			this.AdjustHeightOnLoadVal.Size = new System.Drawing.Size(30, 20);
 			this.AdjustHeightOnLoadVal.TabIndex = 22;
 			// 
+			// CommandPreview
+			// 
+			this.CommandPreview.Enabled = false;
+			this.CommandPreview.Location = new System.Drawing.Point(170, 402);
+			this.CommandPreview.Name = "CommandPreview";
+			this.CommandPreview.ReadOnly = true;
+			this.CommandPreview.Size = new System.Drawing.Size(300, 20);
+			this.CommandPreview.TabIndex = 23;
+			// 
+			// LaunchButton
+			// 
+			this.LaunchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.LaunchButton.BackColor = System.Drawing.Color.Transparent;
+			this.LaunchButton.DownImage = global::BZCLauncher.Properties.Resources.TRbtnclk;
+			this.LaunchButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LaunchButton.ForeColor = System.Drawing.Color.Lime;
+			this.LaunchButton.IdleImage = global::BZCLauncher.Properties.Resources.TRbtnoff;
+			this.LaunchButton.Location = new System.Drawing.Point(488, 0);
+			this.LaunchButton.MousedOverImage = global::BZCLauncher.Properties.Resources.TRbtnon;
+			this.LaunchButton.Name = "LaunchButton";
+			this.LaunchButton.Size = new System.Drawing.Size(152, 34);
+			this.LaunchButton.TabIndex = 4;
+			this.LaunchButton.Text = "LAUNCH";
+			this.LaunchButton.TextOffset = new System.Drawing.Point(-12, -3);
+			this.LaunchButton.Click += new System.EventHandler(this.LaunchButton_Click);
+			// 
+			// BackButton
+			// 
+			this.BackButton.BackColor = System.Drawing.Color.Transparent;
+			this.BackButton.DownImage = global::BZCLauncher.Properties.Resources.TLbtnclk;
+			this.BackButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.BackButton.ForeColor = System.Drawing.Color.Lime;
+			this.BackButton.IdleImage = global::BZCLauncher.Properties.Resources.TLbtnoff;
+			this.BackButton.Location = new System.Drawing.Point(0, 0);
+			this.BackButton.MousedOverImage = global::BZCLauncher.Properties.Resources.TLbtnon;
+			this.BackButton.Name = "BackButton";
+			this.BackButton.Size = new System.Drawing.Size(152, 34);
+			this.BackButton.TabIndex = 0;
+			this.BackButton.Text = "BACK";
+			this.BackButton.TextOffset = new System.Drawing.Point(16, -3);
+			this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+			// 
 			// PageConfig
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = global::BZCLauncher.Properties.Resources.bzclbackground;
 			this.ClientSize = new System.Drawing.Size(624, 441);
+			this.Controls.Add(this.CommandPreview);
 			this.Controls.Add(this.AdjustHeightOnLoadVal);
 			this.Controls.Add(this.CheckAdjustHeightOnLoad);
 			this.Controls.Add(this.CheckSnapScrap);
@@ -343,31 +355,32 @@ namespace BZCLauncher.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private Controls.PictureButton BackButton;
-        public System.Windows.Forms.TextBox ConfigParameter;
-        public System.Windows.Forms.CheckBox CheckWindow;
-        private Controls.PictureButton LaunchButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.CheckBox CheckNoIntro;
-        public System.Windows.Forms.CheckBox CheckPowerUser;
-        public System.Windows.Forms.CheckBox CheckEdit;
-        private System.Windows.Forms.Label label2;
-        public System.Windows.Forms.CheckBox CheckNobodyHome;
-        public System.Windows.Forms.CheckBox CheckNoScript;
-        public System.Windows.Forms.CheckBox CheckShellMap;
-        public System.Windows.Forms.CheckBox CheckResolution;
-        private System.Windows.Forms.TextBox ResolutionX;
-        private System.Windows.Forms.TextBox ResolutionY;
-        public System.Windows.Forms.CheckBox CheckIvar;
-        private System.Windows.Forms.TextBox IvarNum;
-        private System.Windows.Forms.TextBox IvarVal;
-        public System.Windows.Forms.CheckBox CheckSnapScrap;
-        public System.Windows.Forms.CheckBox CheckAdjustHeightOnLoad;
-        private System.Windows.Forms.TextBox AdjustHeightOnLoadVal;
-    }
+		private Controls.PictureButton BackButton;
+		public System.Windows.Forms.TextBox ConfigParameter;
+		public System.Windows.Forms.CheckBox CheckWindow;
+		private Controls.PictureButton LaunchButton;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label label1;
+		public System.Windows.Forms.CheckBox CheckNoIntro;
+		public System.Windows.Forms.CheckBox CheckPowerUser;
+		public System.Windows.Forms.CheckBox CheckEdit;
+		private System.Windows.Forms.Label label2;
+		public System.Windows.Forms.CheckBox CheckNobodyHome;
+		public System.Windows.Forms.CheckBox CheckNoScript;
+		public System.Windows.Forms.CheckBox CheckShellMap;
+		public System.Windows.Forms.CheckBox CheckResolution;
+		private System.Windows.Forms.TextBox ResolutionX;
+		private System.Windows.Forms.TextBox ResolutionY;
+		public System.Windows.Forms.CheckBox CheckIvar;
+		private System.Windows.Forms.TextBox IvarNum;
+		private System.Windows.Forms.TextBox IvarVal;
+		public System.Windows.Forms.CheckBox CheckSnapScrap;
+		public System.Windows.Forms.CheckBox CheckAdjustHeightOnLoad;
+		private System.Windows.Forms.TextBox AdjustHeightOnLoadVal;
+		public System.Windows.Forms.TextBox CommandPreview;
+	}
 }
