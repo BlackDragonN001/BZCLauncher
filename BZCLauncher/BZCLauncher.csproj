@@ -49,12 +49,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="IConfig.cs" />
-    <Compile Include="MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\PageAddons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,9 +71,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\PictureButton.resx">
       <DependentUpon>PictureButton.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PageAddons.resx">
       <DependentUpon>PageAddons.cs</DependentUpon>

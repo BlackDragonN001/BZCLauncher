@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BZCLauncher.Forms {
 	public partial class PageMain : Form {
-		public MainWindow @MainWindow { get; set; }
-		public PageMain(MainWindow mainWindow) {
-			this.MainWindow = mainWindow;
+		public IConfig @Config { get; }
+		public PageMain() {
+			Config = new ConfigManager();
 			this.InitializeComponent();
 		}
 
@@ -25,17 +25,45 @@ namespace BZCLauncher.Forms {
 		}
 
 		private void ButtonAddons_Click(object sender, EventArgs e) {
-			this.Close();
-			new PageAddons(MainWindow).Show();
+			this.Hide();
+			using (var pageAddons = new PageAddons(this)) {
+				pageAddons.ShowDialog();
+			}
+			this.Show();
 		}
 
 		private void LaunchButton_Click(object sender, EventArgs e) {
-			this.MainWindow.LaunchGame();
+			LaunchGame();
 		}
 
 		private void ConfigButton_Click(object sender, EventArgs e) {
+			this.Hide();
+			using (var pageConfig = new PageConfig(this, Config)) {
+				pageConfig.ShowDialog();
+			}
+			this.Show();
+		}
+
+		public void LaunchGame() {
+			string commandArguments = Config.BuildCommandArguments();
+
+			try {
+				//Form.ActiveForm.Hide();
+				//Form.ActiveForm.Show();
+
+				//MainWindow newWindow = new MainWindow();
+				//newWindow.Show();
+
+				System.Diagnostics.Process resultProcess = System.Diagnostics.Process.Start("bzone.exe", "/config BZC_bzone.cfg " + commandArguments);
+
+				// resultProcess.WaitForExit();
+
+				//Form.ActiveForm.Visible = true;
+			} catch (System.ComponentModel.Win32Exception exception) {
+				MessageBox.Show("An internal exception occurred trying to run BattleZone: " + exception.Message, "Error");
+			}
+
 			this.Close();
-			new PageConfig(MainWindow, MainWindow.Config).Show();
 		}
 	}
 }

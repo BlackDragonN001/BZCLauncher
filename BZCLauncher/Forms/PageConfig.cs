@@ -12,17 +12,16 @@ namespace BZCLauncher.Forms {
 	public partial class PageConfig : Form {
 		IConfig config { get; }
 
-		public MainWindow @MainWindow { get; set; }
+		public PageMain @MainWindow { get; set; }
 
-		public PageConfig(MainWindow mainWindow, IConfig config) {
+		public PageConfig(PageMain mainWindow, IConfig config) {
 			this.MainWindow = mainWindow;
 			this.config = config;
 			this.InitializeComponent();
 		}
 
 		private void BackButton_Click(object sender, EventArgs e) {
-			this.Close();
-			new PageMain(MainWindow).Show();
+			Close();
 		}
 
 		private void ConfigParameter_Changed(object sender, EventArgs e) {
@@ -34,7 +33,8 @@ namespace BZCLauncher.Forms {
 		}
 
 		private void LaunchButton_Click(object sender, EventArgs e) {
-			this.MainWindow.LaunchGame();
+			Close();
+			MainWindow.LaunchGame();
 		}
 	}
 }

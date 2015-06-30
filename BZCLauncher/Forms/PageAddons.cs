@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace BZCLauncher.Forms {
 	public partial class PageAddons : Form {
-		public MainWindow @MainWindow { get; set; }
-		public PageAddons(MainWindow mainWindow) {
+		public PageMain @MainWindow { get; set; }
+		public PageAddons(PageMain mainWindow) {
 			this.MainWindow = mainWindow;
 			this.InitializeComponent();
 		}
 
 		private void BackButton_Click(object sender, EventArgs e) {
 			this.Close();
-			new PageMain(MainWindow).Show();
 		}
 
 		private void LaunchButton_Click(object sender, EventArgs e) {
+			Close();
 			MainWindow.LaunchGame();
 		}
 
