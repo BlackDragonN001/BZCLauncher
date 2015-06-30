@@ -27,12 +27,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Addon1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Battlezone Classic", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("TEST");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("The Red Odyssey", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Addon1");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Battlezone Classic", new System.Windows.Forms.TreeNode[] {
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("TEST");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("The Red Odyssey", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
             this.BackButton = new BZCLauncher.Controls.PictureButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LaunchButton = new BZCLauncher.Controls.PictureButton();
@@ -49,6 +49,7 @@
             // 
             // BackButton
             // 
+            this.BackButton.BackColor = System.Drawing.Color.Transparent;
             this.BackButton.DownImage = global::BZCLauncher.Properties.Resources.TLbtnclk;
             this.BackButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BackButton.ForeColor = System.Drawing.Color.Lime;
@@ -64,6 +65,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::BZCLauncher.Properties.Resources.bzctag;
             this.pictureBox1.Location = new System.Drawing.Point(256, 1);
             this.pictureBox1.Name = "pictureBox1";
@@ -75,11 +77,12 @@
             // LaunchButton
             // 
             this.LaunchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LaunchButton.BackColor = System.Drawing.Color.Transparent;
             this.LaunchButton.DownImage = global::BZCLauncher.Properties.Resources.TRbtnclk;
             this.LaunchButton.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LaunchButton.ForeColor = System.Drawing.Color.Lime;
             this.LaunchButton.IdleImage = global::BZCLauncher.Properties.Resources.TRbtnoff;
-            this.LaunchButton.Location = new System.Drawing.Point(488, 0);
+            this.LaunchButton.Location = new System.Drawing.Point(486, 0);
             this.LaunchButton.MousedOverImage = global::BZCLauncher.Properties.Resources.TRbtnon;
             this.LaunchButton.Name = "LaunchButton";
             this.LaunchButton.Size = new System.Drawing.Size(152, 34);
@@ -90,6 +93,7 @@
             // 
             // Install
             // 
+            this.Install.BackColor = System.Drawing.Color.Transparent;
             this.Install.DownImage = global::BZCLauncher.Properties.Resources.BLbtnclk;
             this.Install.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Install.ForeColor = System.Drawing.Color.Lime;
@@ -111,7 +115,7 @@
             this.Enable.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Enable.ForeColor = System.Drawing.Color.Lime;
             this.Enable.IdleImage = global::BZCLauncher.Properties.Resources.BRbtnoff;
-            this.Enable.Location = new System.Drawing.Point(440, 445);
+            this.Enable.Location = new System.Drawing.Point(454, 482);
             this.Enable.MousedOverImage = global::BZCLauncher.Properties.Resources.BRbtnon;
             this.Enable.Name = "Enable";
             this.Enable.Size = new System.Drawing.Size(200, 35);
@@ -159,17 +163,17 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(92, 250);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Addon1";
-            treeNode1.Text = "Addon1";
-            treeNode2.Name = "BZC";
-            treeNode2.Text = "Battlezone Classic";
-            treeNode3.Name = "Test";
-            treeNode3.Text = "TEST";
-            treeNode4.Name = "TRO";
-            treeNode4.Text = "The Red Odyssey";
+            treeNode9.Name = "Addon1";
+            treeNode9.Text = "Addon1";
+            treeNode10.Name = "BZC";
+            treeNode10.Text = "Battlezone Classic";
+            treeNode11.Name = "Test";
+            treeNode11.Text = "TEST";
+            treeNode12.Name = "TRO";
+            treeNode12.Text = "The Red Odyssey";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode4});
+            treeNode10,
+            treeNode12});
             this.treeView1.Size = new System.Drawing.Size(121, 97);
             this.treeView1.TabIndex = 11;
             // 
@@ -178,6 +182,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BZCLauncher.Properties.Resources.bzclbackground;
+            this.ClientSize = new System.Drawing.Size(638, 479);
+            this.ControlBox = false;
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.ExpansionSelection);
@@ -187,8 +193,8 @@
             this.Controls.Add(this.LaunchButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BackButton);
+            this.MaximizeBox = false;
             this.Name = "PageAddons";
-            this.Size = new System.Drawing.Size(640, 480);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
