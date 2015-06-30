@@ -26,7 +26,7 @@ namespace BZCLauncher.Forms {
 
 		private void ButtonAddons_Click(object sender, EventArgs e) {
 			this.Close();
-			new PageAddons().Show();
+			new PageAddons(MainWindow).Show();
 		}
 
 		private void LaunchButton_Click(object sender, EventArgs e) {
