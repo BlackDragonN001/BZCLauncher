@@ -88,7 +88,7 @@ namespace BZCLauncher.Forms
 			this.ButtonAddons.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ButtonAddons.ForeColor = System.Drawing.Color.Lime;
 			this.ButtonAddons.IdleImage = global::BZCLauncher.Properties.Resources.BRbtnoff;
-			this.ButtonAddons.Location = new System.Drawing.Point(440, 483);
+			this.ButtonAddons.Location = new System.Drawing.Point(425, 445);
 			this.ButtonAddons.MousedOverImage = global::BZCLauncher.Properties.Resources.BRbtnon;
 			this.ButtonAddons.Name = "ButtonAddons";
 			this.ButtonAddons.Size = new System.Drawing.Size(200, 35);
