@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace BZCLauncher.Forms {
 	public partial class PageConfig : Form {
@@ -19,7 +21,11 @@ namespace BZCLauncher.Forms {
 			this.MainWindow = mainWindow;
 			this.config = config;
 			this.InitializeComponent();
-			this.Disposables.Add(config.UponChanged.Subscribe(_ => {
+
+			CheckWindow.Checked = config.Windowed;
+			ConfigParameter.Text = config.AdditionalArgs;
+
+			this.Disposables.Add(config.UponChanged.StartWith(new[] { Unit.Default }).Subscribe(_ => {
 				CommandPreview.Text = config.BuildCommandArguments();
 			}));
 		}
