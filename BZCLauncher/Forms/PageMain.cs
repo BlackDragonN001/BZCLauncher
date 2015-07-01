@@ -26,7 +26,10 @@ namespace BZCLauncher.Forms {
 
 		private void ButtonAddons_Click(object sender, EventArgs e) {
 			this.Hide();
-			using (var pageAddons = new PageAddons(this)) {
+			using (var pageAddons = new PageAddons(this) {
+				StartPosition = FormStartPosition.Manual,
+				Location = this.Location,
+			}) {
 				pageAddons.ShowDialog();
 			}
 			this.Show();
@@ -38,7 +41,10 @@ namespace BZCLauncher.Forms {
 
 		private void ConfigButton_Click(object sender, EventArgs e) {
 			this.Hide();
-			using (var pageConfig = new PageConfig(this, Config)) {
+			using (var pageConfig = new PageConfig(this, Config) {
+				StartPosition = FormStartPosition.Manual,
+				Location = this.Location,
+			}) {
 				pageConfig.ShowDialog();
 			}
 			this.Show();
