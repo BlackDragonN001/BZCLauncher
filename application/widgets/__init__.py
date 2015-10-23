@@ -1,4 +1,4 @@
-from .element import Element
+from .widget import Widget
 from .button import Button
 from .image import Image
 from .window import Window

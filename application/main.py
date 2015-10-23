@@ -18,7 +18,7 @@ import gobject
 import pango
 from gtk import gdk
 
-import ui
+import widgets
 import content
 import vector
 import resourcemanager

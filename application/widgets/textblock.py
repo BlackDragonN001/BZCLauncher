@@ -2,9 +2,9 @@ import cairo
 
 import vector
 import math
-from .element import Element
+from .widget import Widget
 
-class TextBlock(Element):
+class TextBlock(Widget):
     clickable = False
     mousable = False
 
@@ -15,7 +15,7 @@ class TextBlock(Element):
     _text_data = None
     
     def __init__(self, resource_manager, text):
-        Element.__init__(self, resource_manager)
+        Widget.__init__(self, resource_manager)
 
         self.text = text
         self.maximum_lines = 2
@@ -26,7 +26,6 @@ class TextBlock(Element):
             self._text_data.append(split)
         
     def draw(self, cr, window, resource_manager):
-        # Draw the text
         cr.save()
         cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
         cr.set_font_size(13)

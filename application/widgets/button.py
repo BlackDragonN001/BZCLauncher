@@ -1,9 +1,23 @@
+"""
+    button.py
+    
+    Source file implementing the button UI element.
+    
+    This software is licensed under the MIT license. Refer to LICENSE.txt for more
+    information.
+"""
+
 import cairo
 
 import vector
-from .element import Element
+import rectangle
+from .widget import Widget
 
-class Button(Element):
+class Button(Widget):
+    """
+        A button is a widget that simply performs some sort of action upon being clicked. The callback
+        method should be assigned in the .responder property of this button.
+    """
     _on_image = None
     _off_image = None
     _clicked_image = None
@@ -19,7 +33,7 @@ class Button(Element):
     text_offset = None
     
     def __init__(self, resource_manager, text, off, on, clicked):
-        Element.__init__(self, resource_manager)
+        Widget.__init__(self, resource_manager)
         
         self._on_image = resource_manager.load_image(on)
         self.image_resolution = vector.Resolution(self._on_image.get_width(), self._on_image.get_height())
@@ -29,10 +43,11 @@ class Button(Element):
         self.text = text
         self.text_offset = vector.Vector(0, 0)
     
-    def location_in_bounds(self, location):
-        if (location.x >= self.position.x and location.y >= self.position.y and location.x <= self.position.x + self.image_resolution.x and location.y <= self.position.y + self.image_resolution.y):
-            return True
-        return False
+    def get_dimensions(self):
+        return vector.Vector(self._off_image.get_width(), self._off_image.get_height())
+    
+    def get_rectangle(self):
+        return rectangle.Rectangle(self.position, self.position + (self.get_dimensions() * self.scale))
     
     def draw(self, cr, window, resource_manager):
         image = self._off_image
@@ -57,17 +72,21 @@ class Button(Element):
         cr.show_text(self.text)
         
     def on_mouse_click(self, window, resource_manager, location):
-        if (self.location_in_bounds(location)):
+        rect = self.get_rectangle()
+        
+        if (rect.contains_point(location)):
             self._clicked = True
     
     def on_mouse_release(self, window, resource_manager, location):
         self._clicked = False
         
-        if (self.location_in_bounds(location) and self.responder is not None):
+        rect = self.get_rectangle()
+        if (rect.contains_point(location) and self.responder is not None):
             self.responder(window, resource_manager)
 
     def on_mouse_move(self, window, resource_manager, location):
-        if (self.location_in_bounds(location)):
+        rect = self.get_rectangle()
+        if (rect.contains_point(location)):
             self._moused = True
             return
         

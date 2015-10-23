@@ -1,9 +1,9 @@
 import cairo
 
 import vector
-from .element import Element
+from .widget import Widget
 
-class Image(Element):
+class Image(Widget):
     clickable = False
     mousable = False
     
@@ -12,7 +12,7 @@ class Image(Element):
     _image = None
     
     def __init__(self, resource_manager, image):
-        Element.__init__(self, resource_manager)
+        Widget.__init__(self, resource_manager)
 
         self._image = resource_manager.load_image(image)
         self.image_resolution = vector.Resolution(self._image.get_width(), self._image.get_height())

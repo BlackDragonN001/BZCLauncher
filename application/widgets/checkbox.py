@@ -2,9 +2,10 @@
 import cairo
 
 import vector
-from .element import Element
+import rectangle
+from .widget import Widget
 
-class CheckBox(Element):
+class CheckBox(Widget):
     _on_image = None
     _off_image = None
     _clicked_image = None
@@ -21,7 +22,7 @@ class CheckBox(Element):
     is_disabled = None
     
     def __init__(self, resource_manager, text, toggled):
-        Element.__init__(self, resource_manager)
+        Widget.__init__(self, resource_manager)
         
         self._on_image = resource_manager.load_image("res/bzcoptionbuttonon.png")
         self.image_resolution = vector.Resolution(self._on_image.get_width(), self._on_image.get_height())
@@ -35,10 +36,11 @@ class CheckBox(Element):
         self.is_toggled = False
         self.is_disabled = False
     
-    def location_in_bounds(self, location):
-        if (location.x >= self.position.x and location.y >= self.position.y and location.x <= self.position.x + self.image_resolution.x and location.y <= self.position.y + self.image_resolution.y):
-            return True
-        return False
+    def get_dimensions(self):
+        return vector.Vector(self._off_image.get_width(), self._off_image.get_height())
+    
+    def get_rectangle(self):
+        return rectangle.Rectangle(self.position, self.position + (self.get_dimensions()))
     
     def draw(self, cr, window, resource_manager):
         image = self._off_image
@@ -68,11 +70,13 @@ class CheckBox(Element):
         cr.restore()
     
     def on_mouse_click(self, window, resource_manager, location):
-        if (not self.is_disabled and self.location_in_bounds(location)):
+        rect = self.get_rectangle()
+        if (not self.is_disabled and rect.contains_point(location)):
             self._clicked = True
     
     def on_mouse_release(self, window, resource_manager, location):
-        if (not self.is_disabled and self.location_in_bounds(location)): 
+        rect = self.get_rectangle()
+        if (not self.is_disabled and rect.contains_point(location)): 
             self._clicked = False
             self.is_toggled = not self.is_toggled
             
@@ -80,7 +84,8 @@ class CheckBox(Element):
                 self.toggled_responder(window, resource_manager, self.is_toggled)
 
     def on_mouse_move(self, window, resource_manager, location):
-        if (self.location_in_bounds(location)):
+        rect = self.get_rectangle()
+        if (rect.contains_point(location)):
             self._moused = True
             return
         

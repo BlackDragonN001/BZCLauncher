@@ -7,6 +7,8 @@
     information.
 """
 
+import math
+
 class Vector(object):
     """
         Base 2D vector type. 
@@ -25,20 +27,39 @@ class Vector(object):
     def __sub__(self, rhs):
         return Vector(self.x - rhs.x, self.y - rhs.y)
     
-    def __mult__(self, rhs):
+    def __mul__(self, rhs):
         return Vector(self.x * rhs.x, self.y * rhs.y)
     
     def __div__(self, rhs):
         return Vector(self.x / rhs.x, self.y / rhs.y)
+    
+    def __lt__(self, other):
+        return self.x < other.x and self.y < other.y
+    
+    def __le__(self, other):
+        return self.x <= other.x and self.y <= other.y
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    
+    def __ne__(self, other):
+        return not self.__eq__(other)
+    
+    def __gt__(self, other):
+        return self.x > other.x and self.y > other.y
+    
+    def __ge__(self, other):
+        return self.x >= other.x and self.y >= other.y 
+    
+    def magnitude(self):
+        return math.sqrt(pow(self.x, 2) + pow(self.y, 2))
+    
+    def __nonzero__(self):
+        return self.x != 0 and self.y != 0
+    
+    length = magnitude
 
-class Position(Vector):
-    pass
-
-class Scale(Vector):
-    pass
-
-class Resolution(Vector):
-    pass
-
-class Size(Vector):
-    pass
+Position = Vector
+Scale = Vector
+Resolution = Vector
+Size = Vector

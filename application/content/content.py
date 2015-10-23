@@ -28,7 +28,8 @@ class Content(object):
         
         # Roll through and draw the sub-elements atop
         for element in self._content:
-            element.draw(cr, window, resource_manager)
+            if (element.visible):
+                element.draw(cr, window, resource_manager)
             
     def on_mouse_release(self, window, resource_manager, location):
         for element in self._clickable_content:
