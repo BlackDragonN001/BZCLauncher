@@ -1,4 +1,5 @@
 import os
+import subprocess
 import platform
 
 import cairo
@@ -71,8 +72,17 @@ class Main(Content):
         window.set_visible(False)
         
         if ("Linux" in platform.system()):
-            (stdin, stdout) = os.popen2("wine bzone.exe", "rw", 100)
+            try:
+                retcode = subprocess.call(["wine", "bzone.exe"])
+            except OSError:
+                print("It appears that WINE is not installed on this system.")
         else:
-            (stdin, stdout) = os.popen2("bzone.exe", "rw", 100)
+            try:
+                retcode = subprocess.call("bzone.exe")
+            except OSError:
+                print("It appears that this launcher is not installed to the correct directory.")
+        
+        print("Return code: %u" % retcode)
+        window.set_visible(True)
             
         

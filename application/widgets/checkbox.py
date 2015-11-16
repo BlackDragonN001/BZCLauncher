@@ -40,7 +40,7 @@ class CheckBox(Widget):
         return vector.Vector(self._off_image.get_width(), self._off_image.get_height())
     
     def get_rectangle(self):
-        return rectangle.Rectangle(self.position, self.position + (self.get_dimensions()))
+        return rectangle.Rectangle(self.position, self.get_dimensions())
     
     def draw(self, cr, window, resource_manager):
         image = self._off_image
@@ -85,6 +85,7 @@ class CheckBox(Widget):
 
     def on_mouse_move(self, window, resource_manager, location):
         rect = self.get_rectangle()
+        
         if (rect.contains_point(location)):
             self._moused = True
             return
