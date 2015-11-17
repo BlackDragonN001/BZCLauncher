@@ -81,7 +81,7 @@ class CheckBox(Widget):
             self.is_toggled = not self.is_toggled
             
             if (self.toggled_responder is not None):
-                self.toggled_responder(window, resource_manager, self.is_toggled)
+                self.toggled_responder(self, window, resource_manager, self.is_toggled)
 
     def on_mouse_move(self, window, resource_manager, location):
         rect = self.get_rectangle()

@@ -68,6 +68,10 @@ class Application(gtk.Window):
         # And finally instantiate our resource manager
         self.resource_manager = resourcemanager.ResourceManager()
         self._interfaces = { }
+        
+    def get_interface(self, name):
+        name = name.lower()
+        return self._interfaces[name]
     
     def set_interface(self, name):
         name = name.lower()

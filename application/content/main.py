@@ -11,7 +11,15 @@ from .settings import Settings
 import vector
 
 class Main(Content):
+    """
+        Content class representing the main GUI of the launcher. This GUI is pretty much the portal to
+        the rest of the functionality of the application as well as the news stand for any recent updates
+        and other announcements on the project.
+    """
     def __init__(self, resource_manager):
+        """
+            Initializes a new Main content GUI.
+        """
         Content.__init__(self, resource_manager)
         
         # Add the BZC Tag
@@ -65,20 +73,46 @@ class Main(Content):
         self._background = resource_manager.load_image("res/bzclbackground.png")
     
     def settings_pressed(self, window, resource_manager):
+        """
+            Callback method to be called when the Settings button is pressed.
+            
+            Parameters:
+                window - The window running the application.
+                resource_manager - The resource manager of the entire application.
+        """
         window.set_interface("settings")
         
     def launch_pressed(self, window, resource_manager):
+        """
+            Callback method to be called when the Launch button is pressed.
+            
+            Parameters:
+                window - The window running the application.
+                resource_manager - The resource manager of the entire application.
+        """
+        
         # Make our launcher window invisible for the launch period
         window.set_visible(False)
         
+        # Grab the settings content
+        settings_content = window.get_interface("settings")
+        
+        boolean_config = [ ]
+        for key in settings_content.boolean_toggles.keys():
+            if (settings_content.boolean_toggles[key]):
+                boolean_config.append(key)
+                
+        print("User Config: ")
+        print(boolean_config)
+        
         if ("Linux" in platform.system()):
             try:
-                retcode = subprocess.call(["wine", "bzone.exe"])
+                retcode = subprocess.call(["wine", "bzone.exe"] + boolean_config)
             except OSError:
                 print("It appears that WINE is not installed on this system.")
         else:
             try:
-                retcode = subprocess.call("bzone.exe")
+                retcode = subprocess.call(["bzone.exe"] + boolean_config)
             except OSError:
                 print("It appears that this launcher is not installed to the correct directory.")
         

@@ -1,11 +1,21 @@
+"""
+    content.py
+    
+    This software is licensed under the MIT license. Refer to LICENSE.txt for more
+    information.
+"""
+
 class Content(object):
+    """
+        Base type representing a GUI interface.
+    """
     _content = None
     _mousable_content = None
     _clickable_content = None
     
     _background = None
     
-    def __init__(self, resource_manager):        
+    def __init__(self, resource_manager):  
         self._content = [ ]
         self._mousable_content = [ ]
         self._clickable_content = [ ]
@@ -23,6 +33,14 @@ class Content(object):
         self.remove(element)
         
     def draw(self, window, resource_manager, cr):
+        """
+            Draws the content to the window.
+            
+            Parameters:
+                window - The PyGTK window we are using.
+                resource_manager - The resource manager object in use by the
+                rest of the program.
+        """
         cr.set_source_surface(self._background, 0, 0)
         cr.paint()
         
