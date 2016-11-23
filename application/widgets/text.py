@@ -2,21 +2,20 @@
 import cairo
 
 import vector
-from .element import Element
+from .widget import Widget
 
-class Text(Element):
+class Text(Widget):
     clickable = False
     mousable = False
 
     text = None
     
     def __init__(self, resource_manager, text):
-        Element.__init__(self, resource_manager)
+        Widget.__init__(self, resource_manager)
 
         self.text = text
         
     def draw(self, cr, window, resource_manager):
-        # Draw the text
         cr.save()
         cr.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
         cr.set_font_size(13)

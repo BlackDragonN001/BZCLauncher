@@ -3,6 +3,7 @@
 *.obj
 *.suo
 *.sdf
+*.pyc
 BZCLauncher/bin
 BZCLauncher/obj
 packages

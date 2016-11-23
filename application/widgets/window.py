@@ -2,9 +2,9 @@
 import cairo
 
 import vector
-from .element import Element
+from .widget import Widget
 
-class Window(Element):
+class Window(Widget):
     clickable = False
     mousable = False
     scale = None
@@ -13,7 +13,7 @@ class Window(Element):
     _image = None
     
     def __init__(self, resource_manager):
-        Element.__init__(self, resource_manager)
+        Widget.__init__(self, resource_manager)
 
         self._image = resource_manager.load_image("res/bigwindow1.png")
         self.image_resolution = vector.Resolution(self._image.get_width(), self._image.get_height())
