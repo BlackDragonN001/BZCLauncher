@@ -1,0 +1,75 @@
+// Battlezone Classic Mod Description, pre-alpha test
+
+[Mod]
+ModName = "Battlezone Classic" // Name as it appears in mod launcher.
+ModVersion = 4.0 // Mod version, used for update comparison.
+ModDescription = "BZClassic.des" // Mod description text file.
+ModImage = "BZClassic.png" // Optional image to display under description.
+ModTag = "BZC" // Used for internal registering of a mod's ID name.
+
+ModLaunchCFG = "BZC_bzone.cfg" // What CFG to use to launch the mod.
+
+// Expansions modify the game in major ways, enough to warrent seperate 
+// Pilot and Saved folders for each one. [Expansion1] ... [Expansion#] are 
+// supported. Only one "Expansion" may be active at a time, unless another 
+// is a requirement.
+[Expansion1]
+ExpansionName = "The Red Odyssey"
+ExpansionVersion = 1.0
+ExpansionDescription = "BZCTRO.des"
+ExpansionImage = "Blah.png"
+ExpansionTag = "TRO"
+
+ExpansionDirectory = "TROAddon" // What folder to use as a resource for this expansion.
+
+// Optional requirements for expnasions, require mod/expansion name/version.
+// ExpansionRequirement1 ... ExpansionRequirement# supported.
+ExpansionRequirement1 = "BZC"
+ExpansionRequirement1Version = 4.0
+
+PilotDirectory = "BZCTROPilots"
+SavedDirectory = "BZCTROSaved"
+
+// Another expansion for RotBD campaign.
+[Expansion2]
+ExpansionName = "Rise of The Black Dogs"
+ExpansionVersion = 1.0
+ExpansionDescription = "BZCRotBD.des"
+ExpansionImage = "Blah.png"
+ExpansionTag = "ROTBD"
+
+ExpansionDirectory = "RotBDAddon"
+
+ExpansionRequirement1 = "BZC"
+ExpansionRequirement1Version = 4.0
+
+PilotDirectory = "BZCRotBDPilots"
+SavedDirectory = "BZCRotBDSaved"
+
+// Addons are more optional, they don't require other users to have the same 
+// addon's installed, etc..
+[Addon1]
+AddonName = "BZ1 Texture Pack"
+AddonDescription = "myaddon.des"
+AddonImage = "Blah.png"
+AddonType = "TexturePack" // Only one of each type can be on at once, TexturePack, UIPack, SoundPack, etc. May do sub types, like TexturePack1, TexturePack2, etc, 
+
+AddonDirectory = "BZ1 Texture Pack"
+
+// Another example.
+[Addon2]
+AddonName = "BZ2 style Hud"
+AddonDescription = "BZ2UI.des"
+AddonImage = "Blah.png"
+AddonType = "UIPack"
+
+AddonDirectory = "BZ2Hud"
+
+// Another example.
+[Addon3]
+AddonName = "Quieter Mag Sound"
+AddonDescription = "soundpack.des"
+AddonImage = "Blah.png"
+AddonType = "SoundPack"
+
+AddonDirectory = "Quieter Mag Sound"
